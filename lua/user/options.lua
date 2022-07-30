@@ -1,0 +1,13 @@
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.undofile = false
+vim.opt.clipboard = "unnamedplus"
+vim.opt.mouse = "a"
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.smartindent = true
+vim.opt.smartcase = true
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.shiftwidth = 4
+vim.opt.cursorline = false
