@@ -1,4 +1,4 @@
-function map(mode, keybinding, command, opts)
+local function map(mode, keybinding, command, opts)
 	local options = { noremap = true }
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
@@ -7,4 +7,5 @@ function map(mode, keybinding, command, opts)
 end
 
 -- map("n", ",<Space>", ":nohlsearch<CR>", { silent = true })
-map("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
+map("n", "<C-p>", ":lua require('telescope.builtin').find_files()<CR>", { noremap = true, silent = true })
+map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
