@@ -6,6 +6,10 @@ local function map(mode, keybinding, command, opts)
 	vim.api.nvim_set_keymap(mode, keybinding, command, options)
 end
 
+-- some autocommands
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)
+
 -- map("n", ",<Space>", ":nohlsearch<CR>", { silent = true })
+map("n", "<C-ç", "C-6", { noremap = true })
 map("n", "<C-p>", ":lua require('telescope.builtin').find_files()<CR>", { noremap = true, silent = true })
 map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
