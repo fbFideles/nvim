@@ -7,7 +7,7 @@ local function map(mode, keybinding, command, opts)
 end
 
 -- some autocommands
-vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 
 -- map("n", ",<Space>", ":nohlsearch<CR>", { silent = true })
 map("n", "<C-ç", "C-6", { noremap = true })
