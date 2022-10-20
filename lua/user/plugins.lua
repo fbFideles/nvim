@@ -1,6 +1,7 @@
 local packer = require("packer")
 
 return packer.startup(function(use)
+	use 'preservim/nerdtree'
 	use 'wbthomason/packer.nvim'
 	use 'morhetz/gruvbox'
 	use 'nvim-lua/plenary.nvim'
