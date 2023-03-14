@@ -6,8 +6,11 @@ local function map(mode, keybinding, command, opts)
 	vim.api.nvim_set_keymap(mode, keybinding, command, options)
 end
 
--- some autocommands
-vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
+vim.api.nvim_create_autocmd('BufWritePre', {
+	callback = function(args)
+		vim.lsp.buf.format({ async = false })
+	end
+})
 
 -- map("n", ",<Space>", ":nohlsearch<CR>", { silent = true })
 map("n", "<C-e>", ":NERDTreeToggle<CR>", { noremap = true })

@@ -1,9 +1,26 @@
-local lsp_server_list_from_installed = require('nvim-lsp-installer.servers').get_installed_server_names()
+local lsp = require('lsp-zero').preset({
+	name = 'minimal',
+	set_lsp_keymaps = true,
+	manage_nvim_cmp = true,
+	suggest_lsp_servers = false,
+})
 
-local lsp_config = require('lspconfig')
-for i in ipairs(lsp_server_list_from_installed) do
-	local server = lsp_server_list_from_installed[i]
-	lsp_config[server].setup {
-		capabilities = completionCapabilities
-	}
+local lsp_attach = function(client, bufnr)
+	vim.api.nvim_create_autocmd('BufWritePre', {
+		callback = function(args)
+			vim.lsp.buf.format({ async = false })
+		end
+	})
 end
+
+
+lsp.ensure_installed({
+	'lua_ls',
+	'gopls',
+	'pyright'
+})
+
+-- (Optional) Configure lua language server for neovim
+lsp.nvim_workspace()
+
+lsp.setup({ on_attach = lsp_attach })
