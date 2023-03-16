@@ -28,8 +28,15 @@ return packer.startup(function(use)
 			{ 'hrsh7th/cmp-nvim-lua' }, -- Optional
 
 			-- Snippets
-			{ 'L3MON4D3/LuaSnip' },    -- Required
-			{ 'rafamadriz/friendly-snippets' }, -- Optional
+			{ 'L3MON4D3/LuaSnip' },   -- Required
+			{ 'rafamadriz/friendly-snippets' } -- Optional
+		}
+	}
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = {
+			'kyazdani42/nvim-web-devicons',
+			opt = true
 		}
 	}
 end)
