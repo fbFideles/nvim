@@ -3,7 +3,7 @@ return {
 		'neovim/nvim-lspconfig',
 		enabled = true,
 		config = function()
-			local lspconfig = require'lspconfig'
+			local lspconfig = require 'lspconfig'
 			lspconfig.lua_ls.setup {}
 			lspconfig.gopls.setup({
 				settings = {
@@ -52,7 +52,7 @@ return {
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						buffer = args.buf,
 						callback = function()
-							vim.lsp.buf.format {async = false, id = args.data.client_id }
+							vim.lsp.buf.format { async = false, id = args.data.client_id }
 						end,
 					})
 				end
