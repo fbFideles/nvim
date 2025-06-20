@@ -7,5 +7,8 @@ return {
 	    	vim.lsp.enable(pkg.name)
 		end
 	end,
+	dependencies = {
+		{ "folke/neodev.nvim"}
+	},
     opts = {}
 }
