@@ -15,13 +15,4 @@ vim.opt.wrap = false
 vim.keymap.set('n', '<C-p>', '<C-6>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*.go",
-	callback = function()
-		local filename = vim.fn.expand('%')
-		vim.api.nvim_command(":silent:!goimports -w " .. filename)
-		vim.api.nvim_command(":silent:e")
-	end
-})
-
 require('config.lazy')
